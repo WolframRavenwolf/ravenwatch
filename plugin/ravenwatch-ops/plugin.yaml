@@ -1,0 +1,5 @@
+name: ravenwatch-ops
+version: 1.0.0
+description: Amy-style operator control room for the Hermes web dashboard.
+author: Amy & Wolfram Ravenwolf
+license: GPL-3.0-or-later

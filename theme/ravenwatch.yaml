@@ -1,0 +1,146 @@
+# Ravenwatch — Amy-style Hermes dashboard operator theme
+# Copy to ~/.hermes/dashboard-themes/ravenwatch.yaml.
+name: ravenwatch
+label: "Ravenwatch"
+description: "Amy-style crimson/emerald operator cockpit for Hermes Agent"
+
+palette:
+  background: "#09090b"
+  midground: "#f4f4f5"
+  foreground:
+    hex: "#ffffff"
+    alpha: 0
+  warmGlow: "rgba(215, 38, 61, 0.28)"
+  noiseOpacity: 0.82
+
+typography:
+  fontSans: '"Inter", "Space Grotesk", system-ui, sans-serif'
+  fontMono: '"JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace'
+  fontDisplay: '"Space Grotesk", "Inter", system-ui, sans-serif'
+  fontUrl: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+  baseSize: "14px"
+  lineHeight: "1.48"
+  letterSpacing: "0.025em"
+
+layout:
+  radius: "0.65rem"
+  density: "compact"
+
+layoutVariant: cockpit
+
+assets:
+  bg: "radial-gradient(circle at 18% 12%, rgba(215,38,61,0.28) 0%, transparent 28%), radial-gradient(circle at 84% 18%, rgba(25,195,125,0.18) 0%, transparent 26%), linear-gradient(135deg, #09090b 0%, #111118 46%, #1a0710 100%)"
+  logo: ""
+  crest: ""
+  hero: ""
+
+componentStyles:
+  card:
+    background: "linear-gradient(180deg, rgba(24,24,31,0.92) 0%, rgba(9,9,11,0.96) 100%)"
+    boxShadow: "inset 0 0 0 1px rgba(215,38,61,0.22), 0 18px 44px -32px rgba(215,38,61,0.72), 0 0 0 1px rgba(255,255,255,0.035)"
+    clipPath: "polygon(13px 0, 100% 0, 100% calc(100% - 13px), calc(100% - 13px) 100%, 0 100%, 0 13px)"
+  header:
+    background: "linear-gradient(180deg, rgba(18,18,24,0.98) 0%, rgba(9,9,11,0.92) 100%)"
+    borderImage: "linear-gradient(90deg, rgba(215,38,61,0.65), rgba(25,195,125,0.52), rgba(215,38,61,0.22)) 1"
+  footer:
+    background: "linear-gradient(0deg, rgba(9,9,11,0.96), rgba(18,18,24,0.86))"
+  sidebar:
+    background: "linear-gradient(180deg, rgba(18,18,24,0.88) 0%, rgba(9,9,11,0.94) 100%)"
+    borderImage: "linear-gradient(180deg, rgba(215,38,61,0.6), rgba(25,195,125,0.32), rgba(215,38,61,0.1)) 1"
+  tab:
+    clipPath: "polygon(7px 0, 100% 0, calc(100% - 7px) 100%, 0 100%)"
+  badge:
+    boxShadow: "0 0 18px -9px currentColor"
+  backdrop:
+    backgroundSize: "cover"
+    backgroundPosition: "center"
+    fillerOpacity: "1"
+    fillerBlendMode: "normal"
+
+colorOverrides:
+  card: "#111118"
+  cardForeground: "#f4f4f5"
+  popover: "#111118"
+  popoverForeground: "#f4f4f5"
+  primary: "#d7263d"
+  primaryForeground: "#fff7f8"
+  secondary: "#1f1f27"
+  secondaryForeground: "#f4f4f5"
+  muted: "#18181f"
+  mutedForeground: "#a1a1aa"
+  accent: "#19c37d"
+  accentForeground: "#06130d"
+  destructive: "#f43f5e"
+  destructiveForeground: "#fff7f8"
+  success: "#19c37d"
+  warning: "#f59e0b"
+  border: "rgba(215, 38, 61, 0.24)"
+  input: "rgba(244,244,245,0.14)"
+  ring: "#19c37d"
+
+customCSS: |
+  :root[data-layout-variant="cockpit"] body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0px, transparent 2px, rgba(255,255,255,0.026) 3px, rgba(255,255,255,0.026) 4px),
+      linear-gradient(90deg, rgba(215,38,61,0.055), transparent 18%, transparent 82%, rgba(25,195,125,0.045));
+    mix-blend-mode: screen;
+  }
+
+  :root[data-layout-variant="cockpit"] body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 99;
+    background: radial-gradient(circle at center, transparent 58%, rgba(0,0,0,0.46) 100%);
+  }
+
+  [data-layout-variant="cockpit"] main h1,
+  [data-layout-variant="cockpit"] main h2,
+  [data-layout-variant="cockpit"] main h3 {
+    letter-spacing: 0.08em;
+  }
+
+  [data-layout-variant="cockpit"] .border-border {
+    position: relative;
+  }
+
+  [data-layout-variant="cockpit"] .border-border::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 9px;
+    height: 9px;
+    border-left: 1px solid rgba(25,195,125,0.65);
+    border-top: 1px solid rgba(25,195,125,0.65);
+    pointer-events: none;
+  }
+
+  [data-layout-variant="cockpit"] .border-border::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 9px;
+    height: 9px;
+    border-right: 1px solid rgba(215,38,61,0.72);
+    border-bottom: 1px solid rgba(215,38,61,0.72);
+    pointer-events: none;
+  }
+
+  /* Ravenwatch is a full cockpit package. Hide other generic cockpit demo
+     slot contributors (notably the bundled Strike Freedom demo) while this
+     theme is active, without affecting other themes. */
+  [data-layout-variant="cockpit"] aside > *:not(.rw-sidebar) {
+    display: none !important;
+  }
+
+  [data-layout-variant="cockpit"] footer span:not(.rw-footer) {
+    display: none !important;
+  }

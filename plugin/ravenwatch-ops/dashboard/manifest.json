@@ -1,0 +1,15 @@
+{
+  "name": "ravenwatch-ops",
+  "label": "Ravenwatch Ops",
+  "description": "Amy-style operator console: health score, incidents, timeline, and copyable ops briefings for Hermes Agent.",
+  "icon": "Shield",
+  "version": "1.0.0",
+  "tab": {
+    "path": "/ravenwatch",
+    "position": "after:analytics"
+  },
+  "slots": ["header-right", "header-banner", "sidebar", "footer-right", "overlay"],
+  "entry": "dist/index.js",
+  "css": "dist/style.css",
+  "api": "plugin_api.py"
+}
